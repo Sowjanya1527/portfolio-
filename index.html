@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bijji Sowjanya | Full Stack Developer</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, sans-serif;
+    }
+
+    body{
+      background:#0f172a;
+      color:white;
+      overflow-x:hidden;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    /* NAVBAR */
+
+    nav{
+      position:fixed;
+      width:100%;
+      top:0;
+      z-index:1000;
+      padding:20px 10%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      background:rgba(255,255,255,0.05);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(255,255,255,0.1);
+    }
+
+    nav h1{
+      color:#38bdf8;
+      font-size:30px;
+    }
+
+    nav ul{
+      display:flex;
+      list-style:none;
+      gap:25px;
+    }
+
+    nav ul li a{
+      color:white;
+      text-decoration:none;
+      transition:0.3s;
+      font-size:16px;
+    }
+
+    nav ul li a:hover{
+      color:#38bdf8;
+    }
+
+    section{
+      padding:120px 10%;
+      min-height:100vh;
+    }
+
+    /* HERO SECTION */
+
+    .hero{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      flex-wrap:wrap;
+      gap:40px;
+    }
+
+    .hero-text{
+      max-width:600px;
+    }
+
+    .hero-text h2{
+      font-size:60px;
+      line-height:1.2;
+    }
+
+    .hero-text span{
+      color:#38bdf8;
+    }
+
+    .hero-text h3{
+      margin-top:20px;
+      font-size:28px;
+      color:#94a3b8;
+    }
+
+    .hero-text p{
+      margin-top:25px;
+      line-height:1.8;
+      color:#cbd5e1;
+      font-size:17px;
+    }
+
+    .btn{
+      display:inline-block;
+      margin-top:30px;
+      padding:14px 35px;
+      border-radius:30px;
+      background:#38bdf8;
+      color:black;
+      text-decoration:none;
+      font-weight:bold;
+      transition:0.4s;
+    }
+
+    .btn:hover{
+      transform:translateY(-5px);
+      box-shadow:0 10px 25px rgba(56,189,248,0.4);
+    }
+
+    /* GLASS EFFECT */
+
+    .glass{
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.1);
+      backdrop-filter:blur(15px);
+      border-radius:25px;
+      padding:30px;
+      box-shadow:0 8px 32px rgba(0,0,0,0.3);
+    }
+
+    .profile-img{
+      width:280px;
+      border-radius:50%;
+      border:4px solid #38bdf8;
+      animation:float 3s ease-in-out infinite;
+    }
+
+    @keyframes float{
+      0%{
+        transform:translateY(0px);
+      }
+      50%{
+        transform:translateY(-15px);
+      }
+      100%{
+        transform:translateY(0px);
+      }
+    }
+
+    /* SECTION TITLES */
+
+    .section-title{
+      text-align:center;
+      font-size:40px;
+      margin-bottom:50px;
+      color:#38bdf8;
+    }
+
+    /* SKILLS */
+
+    .skills-container{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:25px;
+    }
+
+    .skill-card{
+      text-align:center;
+      transition:0.4s;
+    }
+
+    .skill-card:hover{
+      transform:translateY(-10px);
+    }
+
+    .skill-card i{
+      font-size:45px;
+      margin-bottom:20px;
+      color:#38bdf8;
+    }
+
+    .skill-card h3{
+      margin-bottom:10px;
+    }
+
+    /* PROJECTS */
+
+    .projects-container{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:30px;
+    }
+
+    .project-card{
+      transition:0.4s;
+    }
+
+    .project-card:hover{
+      transform:translateY(-10px);
+    }
+
+    .project-card h3{
+      margin-bottom:15px;
+      color:#38bdf8;
+    }
+
+    .project-card p{
+      line-height:1.7;
+      color:#cbd5e1;
+    }
+
+    /* CONTACT */
+
+    .contact{
+      text-align:center;
+    }
+
+    .contact p{
+      margin-top:15px;
+      color:#cbd5e1;
+    }
+
+    .social-icons{
+      display:flex;
+      justify-content:center;
+      gap:20px;
+      margin-top:30px;
+    }
+
+    .social-icons a{
+      width:55px;
+      height:55px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:rgba(255,255,255,0.08);
+      color:white;
+      text-decoration:none;
+      font-size:22px;
+      transition:0.4s;
+    }
+
+    .social-icons a:hover{
+      background:#38bdf8;
+      color:black;
+      transform:scale(1.1);
+    }
+
+    footer{
+      text-align:center;
+      padding:30px;
+      color:#94a3b8;
+    }
+
+    /* MOBILE */
+
+    @media(max-width:768px){
+
+      nav{
+        flex-direction:column;
+        gap:15px;
+      }
+
+      nav ul{
+        gap:15px;
+      }
+
+      .hero{
+        flex-direction:column;
+        text-align:center;
+      }
+
+      .hero-text h2{
+        font-size:42px;
+      }
+
+      section{
+        padding:140px 7%;
+      }
+
+      .profile-img{
+        width:220px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+
+  <nav>
+
+    <h1>Sowjanya</h1>
+
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+  </nav>
+
+  <!-- HERO -->
+
+  <section class="hero" id="home">
+
+    <div class="hero-text">
+
+      <h2>
+        Hi, I'm <span>Bijji Sowjanya</span>
+      </h2>
+
+      <h3>Full Stack Developer</h3>
+
+      <p>
+        Passionate Full Stack Developer skilled in creating
+        modern, responsive and futuristic websites using
+        frontend and backend technologies.
+      </p>
+
+      <a href="#" class="btn">
+        Download Resume
+      </a>
+
+    </div>
+
+    <div class="glass">
+
+      <img
+      src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+      class="profile-img">
+
+    </div>
+
+  </section>
+
+  <!-- ABOUT -->
+
+  <section id="about">
+
+    <h2 class="section-title">About Me</h2>
+
+    <div class="glass">
+
+      <p style="line-height:1.9; color:#cbd5e1; font-size:17px;">
+
+        I am a passionate Full Stack Developer with knowledge in
+        Java, HTML, CSS, JavaScript, React and SQL.
+        I enjoy building beautiful user interfaces,
+        responsive websites and modern web applications with
+        futuristic UI designs and animations.
+
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- SKILLS -->
+
+  <section id="skills">
+
+    <h2 class="section-title">My Skills</h2>
+
+    <div class="skills-container">
+
+      <div class="glass skill-card">
+        <i class="fa-brands fa-java"></i>
+        <h3>Java</h3>
+      </div>
+
+      <div class="glass skill-card">
+        <i class="fa-brands fa-html5"></i>
+        <h3>HTML</h3>
+      </div>
+
+      <div class="glass skill-card">
+        <i class="fa-brands fa-css3-alt"></i>
+        <h3>CSS</h3>
+      </div>
+
+      <div class="glass skill-card">
+        <i class="fa-brands fa-js"></i>
+        <h3>JavaScript</h3>
+      </div>
+
+      <div class="glass skill-card">
+        <i class="fa-brands fa-react"></i>
+        <h3>React</h3>
+      </div>
+
+      <div class="glass skill-card">
+        <i class="fa-solid fa-database"></i>
+        <h3>SQL</h3>
+      </div>
+
+      <div class="glass skill-card">
+        <i class="fa-solid fa-code"></i>
+        <h3>Frontend</h3>
+      </div>
+
+      <div class="glass skill-card">
+        <i class="fa-solid fa-server"></i>
+        <h3>Backend</h3>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- PROJECTS -->
+
+  <section id="projects">
+
+    <h2 class="section-title">Projects</h2>
+
+    <div class="projects-container">
+
+      <div class="glass project-card">
+
+        <h3>Portfolio Website</h3>
+
+        <p>
+          Modern futuristic portfolio website using HTML,
+          CSS and JavaScript with responsive design.
+        </p>
+
+      </div>
+
+      <div class="glass project-card">
+
+        <h3>Student Management System</h3>
+
+        <p>
+          Developed a student management system using Java
+          and SQL for storing student details and records.
+        </p>
+
+      </div>
+
+      <div class="glass project-card">
+
+        <h3>AI Chatbot</h3>
+
+        <p>
+          Built a responsive AI chatbot interface with
+          modern UI and interactive design.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CONTACT -->
+
+  <section id="contact">
+
+    <h2 class="section-title">Contact Me</h2>
+
+    <div class="glass contact">
+
+      <p>Email: yourmail@gmail.com</p>
+
+      <div class="social-icons">
+
+        <a href="https://github.com/" target="_blank">
+          <i class="fa-brands fa-github"></i>
+        </a>
+
+        <a href="https://www.linkedin.com/in/sowjanya-bijji-aaa44339b"
+        target="_blank">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+
+        <a href="https://instagram.com/" target="_blank">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <footer>
+    © 2026 Bijji Sowjanya | All Rights Reserved
+  </footer>
+
+</body>
+  </html>
